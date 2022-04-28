@@ -3,7 +3,8 @@
         <ul class="navbar-item flex-row">
             <li class="nav-item theme-logo">
                 <a href="index.html">
-                    <img src="assets/img/90x90.jpg" class="navbar-logo" alt="logo">
+                    <img src="assets/img/proyect_logo.png" class="navbar-logo" alt="logo">
+                    <b style="font-size: 19px; color:#383fu5c">SISTEMA</b>
                 </a>
             </li>
         </ul>
@@ -49,7 +50,7 @@
                 <div class="dropdown-menu position-absolute animated fadeInUp" aria-labelledby="userProfileDropdown">
                     <div class="user-profile-section">
                         <div class="media mx-auto">
-                            <img src="assets/img/90x90.jpg" class="img-fluid mr-2" alt="avatar">
+                            <img src="assets/img/user_logo.png" class="img-fluid mr-2" alt="avatar">
                             <div class="media-body">
                                 <h5>Carlos Barbieri</h5>
                                 <p>Developer</p>
@@ -58,7 +59,12 @@
                     </div>
                     <div class="dropdown-item">
                         <a href="user_profile.html">
-                            <i class="fas fa-user"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-user">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
                             <span>Mi Perfil</span>
                         </a>
                     </div>
