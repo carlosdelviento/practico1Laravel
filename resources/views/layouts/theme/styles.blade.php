@@ -11,6 +11,8 @@
 
 <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet" type="text/css" />
 
+<link href="{{ asset('css/solid.css') }}" rel="stylesheet" type="text/css" />
+
 <link href="{{ asset('assets/css/elements/avatar.css') }}" rel="stylesheet" type="text/css" />
 <!-- END GLOBAL MANDATORY STYLES -->
 
