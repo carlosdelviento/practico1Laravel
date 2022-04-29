@@ -6,7 +6,7 @@
      <i class="fas fa-search"></i>
     </span>
    </div>
-   <input type="text" wire:model="search" placeholder="Buscar" class="form-control">
+   <input type="text" wire:model="search" placeholder="Buscar" class="form-control">{{-- sin lazymode: wire:model.lazy --}}
   </div>
  </div>
 </div>
