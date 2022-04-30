@@ -16,7 +16,7 @@ class CategoriesController extends Component
     use WithPagination;
 
     public $name, $search, $image, $selected_id, $pageTitle, $componentName;
-    private $pagination = 2;
+    private $pagination = 5;
 
     public function mount()
     {
@@ -39,5 +39,57 @@ class CategoriesController extends Component
         return view('livewire.category.categories', ['categories' => $data])
         ->extends('layouts.theme.app')
         ->section('content');
+    }
+
+    public function Edit($id)
+    {
+        $record = Category::find($id, ['id','name','image']);
+        $this->name = $record->name;
+        $this->selected_id = $record->id;
+        $this->image = null;
+
+        $this->emit('show-modal', 'show modal!');
+
+    }
+    
+    public function Store()
+    {
+        $rules = [
+            'name' => 'required|unique:categories|min:3'
+        ];
+
+        $messages = [
+            'name.required' => 'Nombre de la categoria es requerido',
+            'name.unique' => 'Ya existe el nombre de la categoria',
+            'name.min' => 'El nombre de la categoria debe tener al menos 3 caracteres'
+        ];
+
+        $this->validate($rules, $messages);
+
+        $category = Category::create([
+            'name' => $this->name
+        ]);
+
+        $customFileName;
+        if($this->image)
+        {
+            $customFileName = uniqid() . '_.' . $this->image->extension();
+            $this->image->storeAs('public/categories', $customFileName);
+            $category->image = $customFileName;
+            $category->save();
+        }
+
+        $this->resetUI();
+        $this->emit('category-added','Categoria Registrada');
+
+
+    }
+    
+    public function resetUI()
+    {
+        $this->name ='';
+        $this->image = null;
+        $this->search = '';
+        $this->selected_id = 0;
     }
 }
