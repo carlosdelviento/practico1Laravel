@@ -73,5 +73,28 @@
    $('#theModal').modal('hide')
   });
 
+  window.livewire.on('category-updated', msg => {
+   $('#theModal').modal('hide')
+  });
+
  });
+
+ function Confirm(id) {
+  swal({
+   title: 'CONFIRMAR',
+   text: '¿CONFIRMAS ELIMINAR EL REGISTRO?',
+   type: 'warning',
+   showCancelButton: true,
+   cancelButtonText: 'Cerrar',
+   cancelButtonColor: '#fff',
+   confirmButtonColor: '#3b3f5c',
+   confirmButtonText: 'Aceptar'
+  }).then(function(result) {
+   if (result.value) {
+    window.livewire.emit('deleteRow', id)
+    swal.close()
+   }
+
+  })
+ }
 </script>
