@@ -32,7 +32,7 @@
          </td>
          <td class="text-center">
           <span>
-           <img src="{{ asset('storage/categories/' . $category->image) }}" alt="imagen de ejemplo" height="70"
+           <img src="{{ asset('storage/categories/' . $category->imagen) }}" alt="imagen de ejemplo" height="70"
             width="80" class="rounded">
           </span>
          </td>
@@ -42,10 +42,13 @@
            title="Edit">
            <i class="fas fa-edit"></i>
           </a>
-          <a href="javascript:void(0)" onclick="Confirm('{{ $category->id }}')" class="btn btn-dark mtmobile"
-           title="Delete">
-           <i class="fas fa-trash"></i>
-          </a>
+
+          @if ($category->products->count() < 1)
+           <a href="javascript:void(0)" onclick="Confirm('{{ $category->id }}')" class="btn btn-dark mtmobile"
+            title="Delete">
+            <i class="fas fa-trash"></i>
+           </a>
+          @endif
          </td>
         </tr>
        @endforeach
@@ -79,7 +82,7 @@
 
  });
 
- function Confirm(id) {
+ function Confirm(id, products) {
   swal({
    title: 'CONFIRMAR',
    text: '¿CONFIRMAS ELIMINAR EL REGISTRO?',
