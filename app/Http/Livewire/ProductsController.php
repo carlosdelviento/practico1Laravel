@@ -202,16 +202,12 @@ use WithFileUploads;
         $product->delete();
 
         if($imageTemp !=null){
-            if($imageTemp != null)
-            {
-                if(file_exists('storage/products' . $imageTemp)) {
-                    unlink('storage/products' . $imageTemp);
-                }
+            if(file_exists('storage/products/' . $imageTemp)) {
+                unlink('storage/products/' . $imageTemp);
             }
+        }
 
-            $this->resetUI();
-            $this->emit('product-deleted', 'Producto Eliminado');
-        }       
-    }
-
+        $this->resetUI();
+        $this->emit('product-deleted', 'Producto Eliminado');
+    }       
 }
