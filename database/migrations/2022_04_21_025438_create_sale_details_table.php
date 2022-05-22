@@ -21,7 +21,8 @@ class CreateSaleDetailsTable extends Migration
             $table->foreignId('product_id')->constrained(); // product
             $table->foreignId('sale_id')->constrained(); //venta
 
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
