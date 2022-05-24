@@ -38,7 +38,7 @@
             </li>
 
             <li class="">
-                <a href="#" class="menu-toggle" data-active="false">
+                <a href="{{ url('pos') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
                         <div class="base-icons">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
